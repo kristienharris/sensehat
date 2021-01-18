@@ -105,7 +105,7 @@ sense.set_pixel(5, 6, (255, 0, 0))
 
 sleep(3)
 
-# Set multiple pixels at once
+# Set multiple pixels at once with an index
 # Define some colours
 g = (0, 255, 0) # Green
 b = (0, 0, 0) # Black
@@ -122,14 +122,14 @@ creeper_pixels = [
     g, g, b, g, g, b, g, g
 ]
 
-# Display these colours on the LED matrix
+# Display creeper matrix on the LED matrix
 sense.set_pixels(creeper_pixels)
 
 sleep(3)
+
 sense.clear()
 
 # Show random coloured matrix
-
 random_matrix = [
     pick_random_colour(), pick_random_colour(), pick_random_colour(), pick_random_colour(), pick_random_colour(), pick_random_colour(), pick_random_colour(), pick_random_colour(),
     pick_random_colour(), pick_random_colour(), pick_random_colour(), pick_random_colour(), pick_random_colour(), pick_random_colour(), pick_random_colour(), pick_random_colour(),
@@ -146,7 +146,6 @@ sense.set_pixels(random_matrix)
 sleep(3)
 
 # Rotate and flip sense hat display
-
 sense.show_letter("K")
 
 sleep(1)
