@@ -21,12 +21,13 @@ def random_colour():
     random_blue = randint(0,255)
     return (random_red, random_green, random_blue)
 
-cheese = 3
+cheese = 1
 
 # Clears display and shows all white
 sense.clear(white)
 time.sleep(1)
 
+# Set a random matrix of colours
 H = random_colour()
 matrix = [
     H,H,H,H,H,H,H,H,

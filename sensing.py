@@ -14,8 +14,9 @@ sense.clear()
 
 while True:
     
+    # Using atmospheric data sensors 
     # Take readings from all three sensors
-    t = sense.get_temperature_from_pressure()
+    t = sense.get_temperature_from_pressure() # More accurate as it's further from hot board
     p = sense.get_pressure()
     h = sense.get_humidity()
     
@@ -50,7 +51,7 @@ while True:
     sense.show_message(message, scroll_speed=0.05, back_colour = bg)
     print ("Temp: " + str(t) + " Pressure: " + str(p) + " Humidity: " + str(h))
     
-    # Using IMU
+    # Using IMU positional data
     # Get axis readings
     o = sense.get_orientation()
     pitch = o["pitch"]
@@ -72,7 +73,7 @@ while True:
     
     print("x={0}, y={1}, z={2}".format(x,y,z))
     
-    # Update rotation of display depending on orientation
+    # Update rotation of display depending on orientation and G reading
     if x == -1:
         sense.set_rotation(90)
     elif y == 1:
@@ -81,3 +82,5 @@ while True:
         sense.set_rotation(180)
     else:
         sense.set_rotation(0)
+        
+
