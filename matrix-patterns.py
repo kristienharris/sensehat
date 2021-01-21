@@ -13,6 +13,7 @@ red = (255,0,0)
 green = (0,255,0)
 blue = (0,0,255)
 yellow = (255,255,0)
+white = (255,255,255)
 
 # Function to generate random colour
 def random_colour():
@@ -104,6 +105,22 @@ matrix_unhappy = [
     H,H,H,H,H,H,H,H,
     ]
 sense.set_pixels(matrix_unhappy)
+sleep(cheese)
+
+# Arrow
+D = dark
+W = white
+arrow_white = [
+    D,D,D,W,W,D,D,D,
+	D,D,W,W,W,W,D,D,
+	D,W,D,W,W,D,W,D,
+	D,D,D,W,W,D,D,D,
+	D,D,D,W,W,D,D,D,
+	D,D,D,W,W,D,D,D,
+	D,D,D,W,W,D,D,D,
+	D,D,D,W,W,D,D,D,
+    ]
+sense.set_pixels(arrow_white)
 sleep(cheese)
 
 # Show random coloured matrix
