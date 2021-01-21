@@ -1,7 +1,15 @@
+"""
+When running this program notice that
+if you leave the cursor in a text editable
+window the joystick moves the cursor
+"""
+
 from sense_hat import SenseHat
 from random import randint
 
 sense = SenseHat()
+
+sense.clear(0,0,0)
 
 # Define some functions for each direction
 def red():
@@ -32,7 +40,6 @@ def random_colour(event): # Functions triggered can have event passed to them
             print('Down')
     elif event.action == 'released':
         print('You released me')
-    
     
 # Tell the program which function to associate with which direction
 # sense.stick.direction_up = red
