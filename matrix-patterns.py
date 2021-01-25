@@ -24,6 +24,9 @@ def random_colour():
 
 cheese = 1
 
+sense.clear()
+sleep(2)
+
 # Clears display and shows all white
 sense.clear(white)
 time.sleep(1)
