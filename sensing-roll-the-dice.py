@@ -68,35 +68,38 @@ dice_5 = [
     ]
 
 dice_6 = [
-    R,R,R,R,R,R,R,R,
-    R,W,W,R,R,W,W,R,
-    R,R,R,R,R,R,R,R,
     R,W,W,R,R,W,W,R,
     R,W,W,R,R,W,W,R,
     R,R,R,R,R,R,R,R,
     R,W,W,R,R,W,W,R,
+    R,W,W,R,R,W,W,R,
     R,R,R,R,R,R,R,R,
+    R,W,W,R,R,W,W,R,
+    R,W,W,R,R,W,W,R,
     ]
 
 # Game variables
-guess = 1
+guess = 2
 number_of_sides = 6
 max_val = 12
 speed = 0.05
 play = True
 
-sense.set_pixels(dice_1)
-sleep(.2)
-sense.set_pixels(dice_2)
-sleep(.2)
-sense.set_pixels(dice_3)
-sleep(.2)
-sense.set_pixels(dice_4)
-sleep(.2)
-sense.set_pixels(dice_5)
-sleep(.2)
-sense.set_pixels(dice_6)
-sleep(.2)
+def roll_dice_animation(time):
+    sense.set_pixels(dice_1)
+    sleep(time)
+    sense.set_pixels(dice_2)
+    sleep(time)
+    sense.set_pixels(dice_3)
+    sleep(time)
+    sense.set_pixels(dice_4)
+    sleep(time)
+    sense.set_pixels(dice_5)
+    sleep(time)
+    sense.set_pixels(dice_6)
+    sleep(time)
+
+roll_dice_animation(0.3)
 
 # Introduction to game and rules
 # sense.show_message("Guess total roll dice. 1 - %d. Up or down to guess. Shake to play."  % max_val, speed, W)
@@ -121,14 +124,14 @@ while True:
                 # Check direction
                 if event.direction == "up":
                     # Add or minus one to guess
-                    if guess >= 1 and guess < max_val:
+                    if guess >= 2 and guess < max_val:
                         guess += 1
                     elif guess == max_val:
-                        guess = 1                              
+                        guess = 2                              
                 elif event.direction == "down":
-                    if guess <= max_val and guess > 1:
+                    if guess <= max_val and guess > 2:
                         guess -= 1
-                    elif guess == 1:
+                    elif guess == 2:
                         guess = max_val
         # Stop selection and exit loop on shake        
         acceleration = sense.get_accelerometer_raw()
@@ -147,7 +150,7 @@ while True:
             play = True
                         
     # Play the game
-    sense.show_message("Rolling...", speed, W)
+    roll_dice_animation(0.2)
     sleep(2)
     
     sense.show_message("1st roll %d" % first_roll, speed, W)
