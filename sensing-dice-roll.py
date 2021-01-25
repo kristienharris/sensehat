@@ -1,10 +1,10 @@
 """
-Roll the Dice
-A sense hat guessing game where you guess which number will be rolled.
-Based on Codecademy Lesson - Learn Python 2
+Dice Roll
+A small program to simulate the rolling of a 6 sided die
+Activated by shaking the pi after the message is displayed
 """
 from sense_hat import SenseHat
-from random import randint, uniform
+from random import randint
 from time import sleep
 
 sense = SenseHat()
@@ -89,10 +89,12 @@ def roll_dice_animation(time):
         for side in dice:
             sense.set_pixels(dice[randint(0,number_of_sides - 1)])
             sleep(time)
+    sleep(3)
+    sense.clear(D)      
 
 while True:
     sense.show_message("Shake to roll", message_speed, W)
-    # Shake to fire your die
+    # Shake to fire die
     while play:      
         acceleration = sense.get_accelerometer_raw()
         
@@ -104,6 +106,7 @@ while True:
         y = abs(y)
         z = abs(z)
         
+        # Shake logic
         if x > 1.2 or y > 1.2 or z > 1.2:
             # Roll the dice
             roll_dice_animation(roll_speed)
