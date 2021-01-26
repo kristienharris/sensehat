@@ -85,10 +85,9 @@ roll_speed = 0.15
 play = True
 
 def roll_dice_animation(time):
-    for i in range(randint(1,3)):
-        for side in dice:
-            sense.set_pixels(dice[randint(0,number_of_sides - 1)])
-            sleep(time)
+    for i in range(7):
+        sense.set_pixels(dice[randint(0,number_of_sides - 1)])
+        sleep(time)
     sleep(3)
     sense.clear(D)      
 
@@ -107,6 +106,6 @@ while True:
         z = abs(z)
         
         # Shake logic
-        if x > 1.2 or y > 1.2 or z > 1.2:
+        if x > 1.2 or y > 1.2:
             # Roll the dice
             roll_dice_animation(roll_speed)
